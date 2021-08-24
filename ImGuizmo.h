@@ -192,18 +192,18 @@ namespace ImGuizmo
       WORLD
    };
 
-   IMGUI_API bool Manipulate(const float* view, const float* projection, OPERATION operation, MODE mode, float* matrix, float* deltaMatrix = NULL, const float* snap = NULL, const float* localBounds = NULL, const float* boundsSnap = NULL);
+   IMGUI_API bool Manipulate(const float* view, const float* projection, OPERATION operation, MODE mode, float* matrix, bool mouse0, ImVec2 mousePos, float* deltaMatrix = NULL, const float* snap = NULL, const float* localBounds = NULL, const float* boundsSnap = NULL);
    //
    // Please note that this cubeview is patented by Autodesk : https://patents.google.com/patent/US7782319B2/en
    // It seems to be a defensive patent in the US. I don't think it will bring troubles using it as
    // other software are using the same mechanics. But just in case, you are now warned!
    //
-   IMGUI_API void ViewManipulate(float* view, float length, ImVec2 position, ImVec2 size, ImU32 backgroundColor);
+   IMGUI_API void ViewManipulate(float* view, float length, ImVec2 position, ImVec2 size, ImU32 backgroundColor, ImVec2 mousePos);
 
    IMGUI_API void SetID(int id);
 
    // return true if the cursor is over the operation's gizmo
-   IMGUI_API bool IsOver(OPERATION op);
+   IMGUI_API bool IsOver(OPERATION op, ImVec2 mouse_pos);
    IMGUI_API void SetGizmoSizeClipSpace(float value);
 
    // Allow axis to flip
